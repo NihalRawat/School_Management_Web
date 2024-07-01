@@ -1,0 +1,17 @@
+.login{
+    padding: 10px;
+    width: 350px;
+    margin:auto;
+    margin-top: 80px;      
+    
+}
+
+.loginContent{
+    padding: 10px;
+    background-color: aliceblue;
+    height:100vh;
+    
+}
+h1{
+    text-align: center;
+}
