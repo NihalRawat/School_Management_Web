@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
 
   loginForm:FormGroup | undefined
   constructor(
-    private service:AuthService,
+    private authService:AuthService,
     private fb:FormBuilder
   ) { }
 
@@ -25,7 +25,10 @@ export class LoginComponent implements OnInit {
   }
   login(){
     console.log(this.loginForm.value);
-    this.service.login(this.loginForm.value).subscribe((response)=>{
+    this.authService.login(
+    this.loginForm.get(['email'])!.value,
+    this.loginForm.get(['password'])!.value,
+    ).subscribe((response)=>{
       console.log(response);
     })
   }
