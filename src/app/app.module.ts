@@ -11,14 +11,16 @@ import {MatButtonModule} from '@angular/material/button'
 import {HttpClientModule} from '@angular/common/http'
 import {ReactiveFormsModule,FormsModule} from '@angular/forms'
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatInputModule} from '@angular/material/input'
-
+import {MatInputModule} from '@angular/material/input';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+
   ],
   imports: [
+    MatSnackBarModule,
     MatInputModule,
     MatFormFieldModule,
     ReactiveFormsModule,FormsModule,
