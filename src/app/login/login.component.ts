@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StorageService } from '../auth/service/storage-service/storage.service';
 import { Route, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { UtilityServiceService } from '../auth/service/utility/utility-service.service';
 
 
 @Component({
@@ -16,11 +17,11 @@ export class LoginComponent implements OnInit {
 
   loginForm:FormGroup | undefined
   constructor(
-    private authService:AuthService,
-    private storage:StorageService,
+    private authService:AuthService,    
     private fb:FormBuilder,
     private router:Router,
-    private snackbar:MatSnackBar
+    private snackbar:MatSnackBar,
+    
   ) { }
 
   ngOnInit(): void {
@@ -38,7 +39,7 @@ export class LoginComponent implements OnInit {
       console.log(response);
       if(StorageService.isAmdinLoggedIn()){
         this.router.navigateByUrl("admin/dashboard");
-
+          
       }
       else if(StorageService.isStudentLoggedIn()){
         this.router.navigateByUrl("student/dashboard");

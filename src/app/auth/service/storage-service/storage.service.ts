@@ -1,13 +1,15 @@
+// import { Token } from '@angular/compiler';
 import { Token } from '@angular/compiler';
 import { Injectable } from '@angular/core';
 
-const USER="c_user";
-const TOKEN="c_token";
+const USER='c_user';
+const TOKEN='c_token';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
+  
 
   constructor() { }
 
@@ -35,17 +37,22 @@ export class StorageService {
   }
   static isAmdinLoggedIn():boolean{
     if(this.getToken() == null){
-      return true;
+      return false;
     }
     const role:string=this.getUserRole();
     return role=="ADMIN";
   }
   static isStudentLoggedIn():boolean{
     if(this.getToken() == null){
-      return true;
+      return false;
     }
     const role:string=this.getUserRole();
     return role=="STUDENT";
+  }
+  static logout() {
+    window.localStorage.removeItem(TOKEN);
+    window.localStorage.removeItem(USER);
+    
   }
 
 }
