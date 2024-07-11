@@ -12,7 +12,7 @@ export class AppComponent {
 
   isAdminLoggedIn:boolean;
   isStudentLoggedIn:boolean;
-
+  
   constructor(private router:Router){}
   ngOnInit(){
     this.updateUserLoggedStatus();

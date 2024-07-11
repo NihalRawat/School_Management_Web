@@ -25,6 +25,12 @@ export class StorageService {
     return window.localStorage.getItem(TOKEN);
 
   }
+  static hasToken():boolean{
+    if(this.getToken==null){
+      return false;
+    }
+    return true;
+  }
   static getUser():any{
     return JSON.parse(localStorage.getItem(USER));
   }
