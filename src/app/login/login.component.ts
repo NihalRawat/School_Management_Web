@@ -35,28 +35,30 @@ export class LoginComponent implements OnInit {
     this.authService.login(
     this.loginForm.get(['email'])!.value,
     this.loginForm.get(['password'])!.value,
-    ).subscribe((response)=>{
+    ).subscribe(
+      (response)=>{
       console.log(response);
       if(StorageService.isAmdinLoggedIn()){
         this.router.navigateByUrl("admin/dashboard");
-          
+          this.snackbar.open("Welcome Admin","Success",{duration:3000});
       }
       else if(StorageService.isStudentLoggedIn()){
         this.router.navigateByUrl("student/dashboard");
       }
-    }),
-    error=>{
+    },
+    (error)=>{
       if(error.status==406){
         this.snackbar.open("User is not active","Close",{
           duration:5000
-        });
+        });        
       }
       else{
-        this.snackbar.open("Bad credentails","Close",{
+        this.snackbar.open("Wrong Password or Email","Close",{
           duration:5000
-        });
+        });        
       }
-    }
+      // console.log("user invalid");
+    });
   }
   
 }
