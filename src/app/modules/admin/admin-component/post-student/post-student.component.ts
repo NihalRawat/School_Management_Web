@@ -3,6 +3,7 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdminService } from 'src/app/modules/admin-service/admin.service';
 
+
 @Component({
   selector: 'app-post-student',
   templateUrl: './post-student.component.html',
@@ -26,6 +27,7 @@ export class PostStudentComponent implements OnInit {
       dateOfBirth:['',Validators.required],
       address:['',Validators.required],
       gender:['',Validators.required],
+      studentClass:['',Validators.required]
 
     })
   
