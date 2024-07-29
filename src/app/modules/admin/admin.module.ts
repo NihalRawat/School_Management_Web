@@ -11,12 +11,14 @@ import {MatNativeDateModule} from '@angular/material/core';
 import{ReactiveFormsModule,FormsModule} from '@angular/forms';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
+import { AllStudentsComponent } from './admin-component/all-students/all-students.component';
 
 @NgModule({
   declarations: [
     
     DashboardComponent,
-    PostStudentComponent
+    PostStudentComponent,
+    AllStudentsComponent
   ],
 imports: [MatInputModule,MatProgressSpinnerModule,MatFormFieldModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ReactiveFormsModule,FormsModule,
     HttpClientModule,

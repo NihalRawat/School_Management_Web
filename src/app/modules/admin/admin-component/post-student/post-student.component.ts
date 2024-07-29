@@ -50,8 +50,10 @@ export class PostStudentComponent implements OnInit {
       console.log("called");
       if(res.id!=null){
 this.snackbar.open("Student created","Close",{duration:5000})
+this.isSpinning=false;
       }
       else{
+        this.isSpinning=false;
         this.snackbar.open("studen exsits","Close",{duration:5000})
       }
     })

@@ -1,6 +1,6 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { catchError, Observable, throwError } from 'rxjs';
 import { StorageService } from 'src/app/auth/service/storage-service/storage.service';
 
 
@@ -9,7 +9,7 @@ import { StorageService } from 'src/app/auth/service/storage-service/storage.ser
 })
 export class AdminService {
 //error in keys  private _keys:Keys
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private storageService:StorageService) { }
   keys:string='http://localhost:8083/';
 
   addStudent(studentDto:any):Observable<any>{
@@ -17,11 +17,30 @@ export class AdminService {
       headers:this.createAuthorizationHeader(),
     });
   }
-  createAuthorizationHeader():HttpHeaders{
-    let authHeaders:HttpHeaders=new HttpHeaders();
-    return authHeaders.set(
-      'Authorization',"Bearer" +StorageService.getToken()
-    )
+
+  getAllStudents():Observable<any>{
+    
+    return this.http.get<[]>(this.keys + "api/admin/students",{
+        headers:this.createAuthorizationHeader()
+    })
   }
+ 
+
+  // createAuthorizationHeader():HttpHeaders{
+    
+  //   let authHeaders:HttpHeaders=new HttpHeaders();
+  //   return authHeaders.set(
+  //     'Authorization',"Bearer" +StorageService.getToken()
+  //   )
+  // }
+  private createAuthorizationHeader(): HttpHeaders {
+    const token = StorageService.getToken();
+    let authHeaders: HttpHeaders = new HttpHeaders();
+    if (token) {
+      authHeaders = authHeaders.set('Authorization', `Bearer ${token}`);
+    }
+    return authHeaders;
+  }
+
 
 }

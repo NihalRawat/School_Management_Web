@@ -3,10 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './admin-component/dashboard/dashboard.component';
 import { AdminGuard } from 'src/app/auth/guards/admin-guard/admin.guard';
 import { PostStudentComponent } from './admin-component/post-student/post-student.component';
+import { AllStudentsComponent } from './admin-component/all-students/all-students.component';
 
 const routes: Routes = [
   {path:"dashboard",component:DashboardComponent,canActivate:[AdminGuard]},
   {path:"student",component:PostStudentComponent,canActivate:[AdminGuard]},
+  {path:"students",component:AllStudentsComponent,canActivate:[AdminGuard]}
 ];
 
 @NgModule({
