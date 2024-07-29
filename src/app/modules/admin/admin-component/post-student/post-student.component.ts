@@ -45,12 +45,18 @@ export class PostStudentComponent implements OnInit {
 
   postStudent(){
     console.log(this.validateForm.value);
-    this.isSpinning=true;
-    this.service.addStudent(this.validateForm.value).subscribe((res)=>{
+       
+    this.service.addStudent(this.validateForm.value).subscribe((res)=>{      
       console.log("called");
       if(res.id!=null){
+        this.validateForm.reset();
+         // Clear validation errors for each form control
+    Object.keys(this.validateForm.controls).forEach(key => {
+      this.validateForm.controls[key].setErrors(null);
+    });
 this.snackbar.open("Student created","Close",{duration:5000})
 this.isSpinning=false;
+            
       }
       else{
         this.isSpinning=false;
@@ -67,4 +73,5 @@ this.isSpinning=false;
       }
       return {};
     }
+    
 }

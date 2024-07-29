@@ -29,7 +29,7 @@ export class AllStudentsComponent implements OnInit {
         console.log(res);
       },
       error: (error: HttpErrorResponse) => {
-        console.error('Error fetching students:', error);
+        console.log('Error fetching students:', error);
        
       }
     });

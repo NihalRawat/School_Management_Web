@@ -18,20 +18,14 @@ export class AdminService {
     });
   }
 
-  getAllStudents():Observable<any>{
-    
-    return this.http.get<[]>(this.keys + "api/admin/students",{
-        headers:this.createAuthorizationHeader()
-    })
+  getAllStudents():Observable<any>{    
+    return this.http.get<[]>(this.keys + "api/admin/students")
   }
- 
-
-  // createAuthorizationHeader():HttpHeaders{
+  // getAllStudents():Observable<any>{
     
-  //   let authHeaders:HttpHeaders=new HttpHeaders();
-  //   return authHeaders.set(
-  //     'Authorization',"Bearer" +StorageService.getToken()
-  //   )
+  //   return this.http.get<[]>(this.keys + "api/admin/students",{
+  //       headers:this.createAuthorizationHeader()
+  //   })
   // }
   private createAuthorizationHeader(): HttpHeaders {
     const token = StorageService.getToken();
