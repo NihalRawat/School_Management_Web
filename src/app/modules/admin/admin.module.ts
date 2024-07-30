@@ -13,6 +13,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatInputModule } from '@angular/material/input';
 import { AllStudentsComponent } from './admin-component/all-students/all-students.component';
 
+import {MatCardModule} from '@angular/material/card';
 @NgModule({
   declarations: [
     
@@ -20,7 +21,7 @@ import { AllStudentsComponent } from './admin-component/all-students/all-student
     PostStudentComponent,
     AllStudentsComponent
   ],
-imports: [MatInputModule,MatProgressSpinnerModule,MatFormFieldModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ReactiveFormsModule,FormsModule,
+imports: [MatCardModule,MatInputModule,MatProgressSpinnerModule,MatFormFieldModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ReactiveFormsModule,FormsModule,
     HttpClientModule,
     CommonModule,
     AdminRoutingModule

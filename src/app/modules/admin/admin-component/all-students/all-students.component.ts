@@ -9,7 +9,8 @@ import { AdminService } from 'src/app/modules/admin-service/admin.service';
   styleUrls: ['./all-students.component.css']
 })
 export class AllStudentsComponent implements OnInit {
-
+  
+  students:any;
   constructor(private service:AdminService) { }
 
   ngOnInit(): void {
@@ -27,6 +28,7 @@ export class AllStudentsComponent implements OnInit {
     this.service.getAllStudents().subscribe({
       next: (res) => {
         console.log(res);
+        this.students=res;
       },
       error: (error: HttpErrorResponse) => {
         console.log('Error fetching students:', error);
