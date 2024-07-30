@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     this.authService.login(
     this.loginForm.get(['email'])!.value,
     this.loginForm.get(['password'])!.value,
-    ).subscribe(
+  ).subscribe(
       (response)=>{
       console.log(response);
       if(StorageService.isAmdinLoggedIn()){

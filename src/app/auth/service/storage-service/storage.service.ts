@@ -41,10 +41,13 @@ export class StorageService {
     }
     return user.role;
   }
+ 
   static isAmdinLoggedIn():boolean{
     if(this.getToken() == null){
       return false;
+      
     }
+   
     const role:string=this.getUserRole();
     return role=="ADMIN";
   }
