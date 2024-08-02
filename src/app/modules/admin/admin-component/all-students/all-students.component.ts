@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { catchError, throwError } from 'rxjs';
 import { AdminService } from 'src/app/modules/admin-service/admin.service';
 
@@ -11,7 +12,7 @@ import { AdminService } from 'src/app/modules/admin-service/admin.service';
 export class AllStudentsComponent implements OnInit {
   
   students:any;
-  constructor(private service:AdminService) { }
+  constructor(private service:AdminService,private snackbar:MatSnackBar) { }
 
   ngOnInit(): void {
     this.getAllStudents();
@@ -35,6 +36,14 @@ export class AllStudentsComponent implements OnInit {
        
       }
     });
+  }
+
+  deleteStudent(studentId:number){
+    this.service.deleteStudent(studentId).subscribe((res)=>{      
+        this.getAllStudents();  
+        this.snackbar.open("Student deleted successfully","Close",{duration:1000})  
+    })
+    
   }
   
 

@@ -54,13 +54,13 @@ export class PostStudentComponent implements OnInit {
     Object.keys(this.validateForm.controls).forEach(key => {
       this.validateForm.controls[key].setErrors(null);
     });
-this.snackbar.open("Student created","Close",{duration:5000})
+this.snackbar.open("Student created","Close",{duration:1000})
 this.isSpinning=false;
             
       }
       else{
         this.isSpinning=false;
-        this.snackbar.open("studen exsits","Close",{duration:5000})
+        this.snackbar.open("studen exsits","Close",{duration:1000})
       }
     })
   }

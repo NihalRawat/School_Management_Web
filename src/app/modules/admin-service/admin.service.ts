@@ -33,6 +33,15 @@ export class AdminService {
     }
     return authHeaders;
   }
+  //delete Student's 
+  deleteStudent(studentId:any):Observable<any>{
+    return this.http.delete<[]>(this.keys+`api/admin/students/${studentId}`,
+      {
+        headers:this.createAuthorizationHeader()
+      }
+    ) 
+    
+  }
 
 
 }

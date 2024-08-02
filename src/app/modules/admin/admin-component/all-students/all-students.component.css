@@ -5,7 +5,7 @@
     margin: 20px;    
     }    
     .student-card {    
-    width: calc(33.33%- 16px);    
+    width: calc(33.33%- 16px);        
     margin-bottom: 16px;  
       
     @media (max-width: 768px) {    
