@@ -39,9 +39,18 @@ export class AdminService {
       {
         headers:this.createAuthorizationHeader()
       }
-    ) 
-    
-  }
+    )}
 
+    getStudentById(studentId:number):Observable<any>{
+      return this.http.get<[]>(this.keys+`api/admin/students/${studentId}`,{
+        headers:this.createAuthorizationHeader()
+      }        
+      )
+    }
+    updateStudent(studentId:number,studentDto:any):Observable<any>{
+      return this.http.put<[]>(this.keys+`api/admin/students/${studentId}`,studentDto,{
+        headers:this.createAuthorizationHeader()
+      })
+    }
 
 }

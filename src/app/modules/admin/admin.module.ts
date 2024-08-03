@@ -14,12 +14,14 @@ import { MatInputModule } from '@angular/material/input';
 import { AllStudentsComponent } from './admin-component/all-students/all-students.component';
 
 import {MatCardModule} from '@angular/material/card';
+import { UpdateStudentComponent } from './admin-component/update-student/update-student.component';
 @NgModule({
   declarations: [
     
     DashboardComponent,
     PostStudentComponent,
-    AllStudentsComponent
+    AllStudentsComponent,
+    UpdateStudentComponent
   ],
 imports: [MatCardModule,MatInputModule,MatProgressSpinnerModule,MatFormFieldModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ReactiveFormsModule,FormsModule,
     HttpClientModule,
