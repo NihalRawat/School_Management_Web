@@ -5,12 +5,14 @@ import { AdminGuard } from 'src/app/auth/guards/admin-guard/admin.guard';
 import { PostStudentComponent } from './admin-component/post-student/post-student.component';
 import { AllStudentsComponent } from './admin-component/all-students/all-students.component';
 import { UpdateStudentComponent } from './admin-component/update-student/update-student.component';
+import { PayFeeComponent } from './admin-component/pay-fee/pay-fee.component';
 
 const routes: Routes = [
   {path:"dashboard",component:DashboardComponent,canActivate:[AdminGuard]},
   {path:"student",component:PostStudentComponent,canActivate:[AdminGuard]},
   {path:"students",component:AllStudentsComponent,canActivate:[AdminGuard]},
-  {path:"student/:studentId",component:UpdateStudentComponent,canActivate:[AdminGuard]}
+  {path:"student/:studentId",component:UpdateStudentComponent,canActivate:[AdminGuard]},
+  {path:"fee/:studentId",component:PayFeeComponent,canActivate:[AdminGuard]},
 ];
 
 @NgModule({

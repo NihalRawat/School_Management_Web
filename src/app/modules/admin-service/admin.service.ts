@@ -53,4 +53,12 @@ export class AdminService {
       })
     }
 
+    payFee(studentId:number,feeDto:any):Observable<any>{  
+        
+      return this.http.post<[]>(this.keys+`api/admin/fee/${studentId}`,feeDto,{
+        headers:this.createAuthorizationHeader()        
+      })
+      
+    }
+
 }

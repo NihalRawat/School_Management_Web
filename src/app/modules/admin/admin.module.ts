@@ -15,13 +15,15 @@ import { AllStudentsComponent } from './admin-component/all-students/all-student
 
 import {MatCardModule} from '@angular/material/card';
 import { UpdateStudentComponent } from './admin-component/update-student/update-student.component';
+import { PayFeeComponent } from './admin-component/pay-fee/pay-fee.component';
 @NgModule({
   declarations: [
     
     DashboardComponent,
     PostStudentComponent,
     AllStudentsComponent,
-    UpdateStudentComponent
+    UpdateStudentComponent,
+    PayFeeComponent
   ],
 imports: [MatCardModule,MatInputModule,MatProgressSpinnerModule,MatFormFieldModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ReactiveFormsModule,FormsModule,
     HttpClientModule,
