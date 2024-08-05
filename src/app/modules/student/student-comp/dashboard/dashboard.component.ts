@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StudentService } from '../../student-servie/student.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,10 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
-  constructor() { }
+  student:any;
+  //can also create a modal for student 
+  constructor(private service:StudentService) { }
 
   ngOnInit(): void {
+    this.getStudentById();
   }
-
+    getStudentById(){
+      this.service.getStudentById().subscribe(
+        (res)=>{
+          this.student=res.studentDto;
+        }
+      )
+    }
 }

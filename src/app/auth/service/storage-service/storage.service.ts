@@ -63,5 +63,10 @@ export class StorageService {
     window.localStorage.removeItem(USER);
     
   }
+  static getUserId(){
+    const user=this.getUser();
+    if(user==null) return '';
+    return user.userId;
+  }
 
 }
