@@ -11,11 +11,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ApplyLeaveComponent } from './student-comp/apply-leave/apply-leave.component';
 
 
 @NgModule({
   declarations: [
-    DashboardComponent
+    DashboardComponent,
+    ApplyLeaveComponent
   ],
   imports: [
     MatCardModule,MatInputModule,MatProgressSpinnerModule,MatFormFieldModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ReactiveFormsModule,FormsModule,
