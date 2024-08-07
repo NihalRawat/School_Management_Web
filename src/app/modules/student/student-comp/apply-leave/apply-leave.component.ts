@@ -31,6 +31,7 @@ export class ApplyLeaveComponent implements OnInit {
     this.isSpinning=true;
     this.studentService.applyLeave(this.validateForm.value).subscribe(
       (res)=>{
+        
         console.log(res);
         this.isSpinning=false;
         if(res.id!=null){
@@ -45,6 +46,7 @@ export class ApplyLeaveComponent implements OnInit {
           })
         }
       },(error)=>{
+        
         console.log(error);
         this.isSpinning=false;
       })

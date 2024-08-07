@@ -29,7 +29,15 @@ keys:string='http://localhost:8083/';
 
   applyLeave(studentLeaveDto):Observable<any>{
     studentLeaveDto.userId=StorageService.getUserId();
+    console.log(studentLeaveDto);
     return this.http.post<[]>(this.keys+`api/student/leave`,studentLeaveDto,{
+      headers:this.createAuthorizationHeader()
+    })
+    
+    
+  }
+  getAllAppliedLeaves():Observable<any>{
+    return this.http.get<[]>(this.keys+`api/student/leave/${StorageService.getUserId()}`,{
       headers:this.createAuthorizationHeader()
     })
   }

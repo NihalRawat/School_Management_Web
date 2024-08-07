@@ -33,6 +33,7 @@ export class StorageService {
   }
   static getUser():any{
     return JSON.parse(localStorage.getItem(USER));
+    
   }
   static getUserRole():string{
     const user=this.getUser();
@@ -65,7 +66,10 @@ export class StorageService {
   }
   static getUserId(){
     const user=this.getUser();
-    if(user==null) return '';
+    if(user==null) {
+      console.log('no id found');
+      return '';
+    }
     return user.userId;
   }
 
