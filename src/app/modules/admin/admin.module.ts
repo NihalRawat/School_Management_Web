@@ -16,6 +16,8 @@ import { AllStudentsComponent } from './admin-component/all-students/all-student
 import {MatCardModule} from '@angular/material/card';
 import { UpdateStudentComponent } from './admin-component/update-student/update-student.component';
 import { PayFeeComponent } from './admin-component/pay-fee/pay-fee.component';
+import { AllLeavesComponent } from './admin-component/all-leaves/all-leaves.component';
+import {MatMenuModule} from '@angular/material/menu';
 @NgModule({
   declarations: [
     
@@ -23,9 +25,10 @@ import { PayFeeComponent } from './admin-component/pay-fee/pay-fee.component';
     PostStudentComponent,
     AllStudentsComponent,
     UpdateStudentComponent,
-    PayFeeComponent
+    PayFeeComponent,
+    AllLeavesComponent
   ],
-imports: [MatCardModule,MatInputModule,MatProgressSpinnerModule,MatFormFieldModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ReactiveFormsModule,FormsModule,
+imports: [MatMenuModule,MatCardModule,MatInputModule,MatProgressSpinnerModule,MatFormFieldModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ReactiveFormsModule,FormsModule,
     HttpClientModule,
     CommonModule,
     AdminRoutingModule

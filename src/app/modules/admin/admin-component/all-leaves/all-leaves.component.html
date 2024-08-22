@@ -11,21 +11,21 @@
             <p>Body :<strong>{{leave.body}}</strong></p>
             <p>Date:<strong>{{leave.date |date:'MMM d,y'}}</strong></p>
             <p>Status:
-                <strong [ngStyle]="{'color':leave.studentLeaveStatus === 'APPROVED' ? 'green': leave.studentLeaveStatus}">
+                <strong [ngStyle]="{'color':leave.studentLeaveStatus === 'APPROVED' ? 'green' : leave.studentLeaveStatus === 'DISAPPROVED' ? 'blue':'red'}">
                     {{leave.studentLeaveStatus}}
                 </strong>
             </p>
         </mat-card-content>
         
-        <!-- <mat-card-actions>
+        <mat-card-actions>
             <button mat-raised-button color="primary" [matMenuTriggerFor]="menu">
                 Action
             </button>
             <mat-menu #menu="matMenu">
-                <button mat-menu-item (click)="chargeLeaveStatus(leave.id,'Approve')">Approved</button>
+                <button mat-menu-item (click)="changeLeaveStatus(leave.id,'Approve')">Approved</button>
                 <button mat-menu-item (click)="changeLeaveStatus(leave.id,'Reject')">Reject</button>
             </mat-menu>
-        </mat-card-actions> -->
+        </mat-card-actions>
 
     </mat-card>
 

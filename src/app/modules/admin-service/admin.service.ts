@@ -59,5 +59,19 @@ export class AdminService {
       })
       
     }
+    getAllAppliedLeaves():Observable<any>{
+      return this.http.get<[]>(this.keys+`api/admin/leaves`,{
+        headers:this.createAuthorizationHeader()
+      })
+    }
+
+    changeLeaveStatus(leaveId:number,status:string):Observable<any>{
+      return this.http.get<[]>(this.keys + `api/admin/leaves/${leaveId}/${status}`,
+      {
+          headers:this.createAuthorizationHeader()
+      })
+    }
+
+
 
 }

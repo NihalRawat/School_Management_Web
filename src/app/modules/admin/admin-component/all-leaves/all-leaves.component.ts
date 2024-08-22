@@ -29,24 +29,24 @@ export class AllLeavesComponent implements OnInit {
     )
   }
 
-  // changeLeaveStatus(leaveId:number,status:string){
-  //   this.isSpinning=true;
-  //   this.adminService.changeLeaveStatus(leaveId,status).subscribe(
-  //     (res)=>{
-  //       console.log(res);
-  //       this.isSpinning=false;
-  //       if(res.id !=null){
-  //         this.snackBar.open('Leave Approved Successfull','success',{
-  //           duration:2000
-  //         });
-  //         this.getAllLeaves();
-  //       }else{
-  //         this.snackBar.open("something went wrong",'ERROR',{
-  //           duration:1000
-  //         })
-  //       }
-  //     }
-  //   )
-  // }
+  changeLeaveStatus(leaveId:number,status:string){
+    this.isSpinning=true;
+    this.adminService.changeLeaveStatus(leaveId,status).subscribe(
+      (res)=>{
+        console.log(res);
+        this.isSpinning=false;
+        if(res.id !=null){
+          this.snackBar.open('Leave Approved Successfull','success',{
+            duration:2000
+          });
+          this.getAllLeaves();
+        }else{
+          this.snackBar.open("something went wrong",'ERROR',{
+            duration:1000
+          })
+        }
+      }
+    )
+  }
 
 }
