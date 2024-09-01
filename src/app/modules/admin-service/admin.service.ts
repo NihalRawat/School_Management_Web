@@ -72,6 +72,12 @@ export class AdminService {
       })
     }
 
+    // Teacher's 
+    addTeacher(teacherDto:any):Observable<any>{
+      return this.http.post<[]>(this.keys+"api/admin/teacher",teacherDto,{
+        headers:this.createAuthorizationHeader(),
+      });
+    }
 
 
 }
