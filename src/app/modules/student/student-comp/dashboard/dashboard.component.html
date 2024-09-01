@@ -12,7 +12,7 @@
             <p>Email:<strong>{{student.email}}</strong></p>
             <p>Father Name:<strong>{{student.fatherName}}</strong></p>
             <p>Mother Name:<strong>{{student.motherName}}</strong></p>
-            <p>Date of Birth:<strong>{{student.dateOfBirth}}</strong></p>
+            <p>Date of Birth:<strong>{{student.dob |date :'yyyy/MM/dd' }}</strong></p>
             <p>Gender:<strong>{{student.gender}}</strong></p>
             <p>Address:<strong>{{student.address}}</strong></p>
         </mat-card-content>

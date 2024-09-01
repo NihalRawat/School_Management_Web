@@ -4,11 +4,13 @@ import { DashboardComponent } from './student-comp/dashboard/dashboard.component
 import { StudentGuard } from 'src/app/auth/guards/student-guard/student.guard';
 import { ApplyLeaveComponent } from './student-comp/apply-leave/apply-leave.component';
 import { GetAllLeavesComponent } from './student-comp/get-all-leaves/get-all-leaves.component';
+import { UpdateStudentComponent } from './student-comp/update-student/update-student.component';
 
 const routes: Routes = [
   {path:"dashboard",component:DashboardComponent,canActivate:[StudentGuard]},
   {path:"leave",component:ApplyLeaveComponent,canActivate:[StudentGuard]},
   {path:"leaves",component:GetAllLeavesComponent,canActivate:[StudentGuard]},
+  {path:"update",component:UpdateStudentComponent,canActivate:[StudentGuard]}
 ];
 
 @NgModule({

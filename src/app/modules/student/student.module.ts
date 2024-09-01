@@ -13,9 +13,10 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApplyLeaveComponent } from './student-comp/apply-leave/apply-leave.component';
 import { GetAllLeavesComponent } from './student-comp/get-all-leaves/get-all-leaves.component';
+import { UpdateStudentComponent } from './student-comp/update-student/update-student.component';
 @NgModule({
   declarations: [
-    DashboardComponent,ApplyLeaveComponent,GetAllLeavesComponent
+    DashboardComponent,ApplyLeaveComponent,GetAllLeavesComponent, UpdateStudentComponent
     
   ],
   imports: [

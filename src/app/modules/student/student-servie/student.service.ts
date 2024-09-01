@@ -41,4 +41,11 @@ keys:string='http://localhost:8083/';
       headers:this.createAuthorizationHeader()
     })
   }
+
+  updateStudent(studentLeaveDto):Observable<any>{
+    studentLeaveDto.userId = StorageService.getUserId();
+    return this.http.put<[]>(this.keys + `api/student/${StorageService.getUserId()}`,studentLeaveDto,{
+      headers:this.createAuthorizationHeader()
+    })
+  }
 }
