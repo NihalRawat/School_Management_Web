@@ -18,6 +18,7 @@ import { UpdateStudentComponent } from './admin-component/update-student/update-
 import { PayFeeComponent } from './admin-component/pay-fee/pay-fee.component';
 import { AllLeavesComponent } from './admin-component/all-leaves/all-leaves.component';
 import {MatMenuModule} from '@angular/material/menu';
+import { PostTeacherComponent } from './admin-component/post-teacher/post-teacher.component';
 @NgModule({
   declarations: [
     
@@ -26,7 +27,8 @@ import {MatMenuModule} from '@angular/material/menu';
     AllStudentsComponent,
     UpdateStudentComponent,
     PayFeeComponent,
-    AllLeavesComponent
+    AllLeavesComponent,
+    PostTeacherComponent
   ],
 imports: [MatMenuModule,MatCardModule,MatInputModule,MatProgressSpinnerModule,MatFormFieldModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ReactiveFormsModule,FormsModule,
     HttpClientModule,

@@ -7,6 +7,7 @@ import { AllStudentsComponent } from './admin-component/all-students/all-student
 import { UpdateStudentComponent } from './admin-component/update-student/update-student.component';
 import { PayFeeComponent } from './admin-component/pay-fee/pay-fee.component';
 import { AllLeavesComponent } from './admin-component/all-leaves/all-leaves.component';
+import { PostTeacherComponent } from './admin-component/post-teacher/post-teacher.component';
 
 const routes: Routes = [
   {path:"dashboard",component:DashboardComponent,canActivate:[AdminGuard]},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path:"student/:studentId",component:UpdateStudentComponent,canActivate:[AdminGuard]},
   {path:"fee/:studentId",component:PayFeeComponent,canActivate:[AdminGuard]},
   {path:"leaves",component:AllLeavesComponent,canActivate:[AdminGuard]},
+  {path:"teacher",component:PostTeacherComponent,canActivate:[AdminGuard]},
 ];
 
 @NgModule({
