@@ -1,1 +1,152 @@
-<p>post-teacher works!</p>
+<!-- <div class="bg" style="margin-top: 150px;">
+    <mat-spinner *ngIf="isSpinning" [diameter]="50" class="spinner"></mat-spinner>
+  
+    <div class="parent">
+      <div class="child">
+        <h1 class="form-title">Post Teacher</h1>
+  
+        <form class="login-form">
+  
+          
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Name</mat-label>
+            <input matInput type="text" placeholder="Name" formControlName="name" />
+            <mat-error *ngIf="validateForm.get('name')?.hasError('required')">
+              This Input Is Required!
+            </mat-error>
+          </mat-form-field>
+  
+          
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Qualification</mat-label>
+            <input matInput type="text" placeholder="Qualification" formControlName="qualification" />
+            <mat-error *ngIf="validateForm.get('qualification')?.hasError('required')">
+              This Input Is Required!
+            </mat-error>
+          </mat-form-field>
+  
+          
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Department</mat-label>
+            <input matInput type="text" placeholder="Department" formControlName="department" />
+            <mat-error *ngIf="validateForm.get('department')?.hasError('required')">
+              This Input Is Required!
+            </mat-error>
+          </mat-form-field>
+  
+          
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" placeholder="Date of Birth" formControlName="dateOfBirth" />
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="validateForm.get('dateOfBirth')?.hasError('required')">
+              This Input Is Required!
+            </mat-error>
+          </mat-form-field>
+  
+          
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Address</mat-label>
+            <textarea matInput placeholder="Address" formControlName="address"></textarea>
+            <mat-error *ngIf="validateForm.get('address')?.hasError('required')">
+              This Input Is Required!
+            </mat-error>
+          </mat-form-field>
+  
+          
+          <mat-form-field appearance="outline" class="form-field">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender">
+              <mat-option value="male">Male</mat-option>
+              <mat-option value="female">Female</mat-option>
+              <mat-option value="other">Other</mat-option>
+            </mat-select>
+            <mat-error *ngIf="validateForm.get('gender')?.hasError('required')">
+              This Input Is Required!
+            </mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary" [disabled]="validateForm.invalid"> Add teacher </button>
+        </form>
+      </div>
+    </div>
+  </div>
+   -->
+
+   <div class="bg" style="margin-top: 10px;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-6">
+          <h1 class="form-title text-center">Post Teacher</h1>
+  
+          <form [formGroup]="validateForm" class="login-form mt-4">
+  
+            <!-- Name Field -->
+            <div class="form-group mb-4">
+              <label for="name">Name</label>
+              <input type="text" id="name" class="form-control" placeholder="Name" formControlName="name" />
+              <div *ngIf="validateForm.get('name')?.invalid && validateForm.get('name')?.touched" class="text-danger">
+                This Input Is Required!
+              </div>
+            </div>
+  
+            <!-- Qualification Field -->
+            <div class="form-group mb-4">
+              <label for="qualification">Qualification</label>
+              <input type="text" id="qualification" class="form-control" placeholder="Qualification" formControlName="qualification" />
+              <div *ngIf="validateForm.get('qualification')?.invalid && validateForm.get('qualification')?.touched" class="text-danger">
+                This Input Is Required!
+              </div>
+            </div>
+  
+            <!-- Department Field -->
+            <div class="form-group mb-4">
+              <label for="department">Department</label>
+              <input type="text" id="department" class="form-control" placeholder="Department" formControlName="department" />
+              <div *ngIf="validateForm.get('department')?.invalid && validateForm.get('department')?.touched" class="text-danger">
+                This Input Is Required!
+              </div>
+            </div>
+  
+            <!-- Date of Birth Field -->
+            <div class="form-group mb-4">
+              <label for="dateOfBirth">Date of Birth</label>
+              <input type="date" id="dateOfBirth" class="form-control" placeholder="Date of Birth" formControlName="dob" />
+              <div *ngIf="validateForm.get('dateOfBirth')?.invalid && validateForm.get('dateOfBirth')?.touched" class="text-danger">
+                This Input Is Required!
+              </div>
+            </div>
+  
+            <!-- Address Field -->
+            <div class="form-group mb-4">
+              <label for="address">Address</label>
+              <textarea id="address" class="form-control" placeholder="Address" rows="3" formControlName="address"></textarea>
+              <div *ngIf="validateForm.get('address')?.invalid && validateForm.get('address')?.touched" class="text-danger">
+                This Input Is Required!
+              </div>
+            </div>
+  
+           <!-- Gender Field -->
+            <div class="form-group mb-4">
+    <label for="gender">Gender</label>
+    <select id="gender" class="form-control" formControlName="gender" >
+      <option value="" disabled>Select Gender</option>
+      <option value="male">Male</option>
+      <option value="female">Female</option>
+      <option value="other">Other</option>
+    </select>
+    <div *ngIf="validateForm.get('gender')?.invalid && validateForm.get('gender')?.touched" class="text-danger">
+      This Input Is Required!
+    </div>
+             </div>
+  
+            <!-- Submit Button -->
+            <button type="submit" class="btn btn-primary btn-block" [disabled]="validateForm.invalid" (click)="postTeachers()">Add Teacher</button>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  

@@ -5,8 +5,9 @@ import { NoAuthGuard } from './auth/guards/noAuth-guard/noAuth-guard/no-auth.gua
 
 const routes: Routes = [
   {
-    path:"login",component:LoginComponent,canActivate:[NoAuthGuard]
-  },
+    path:"",component:LoginComponent,canActivate:[NoAuthGuard],
+    
+  },{path:"login",component:LoginComponent,canActivate:[NoAuthGuard],},
   {path:"admin",loadChildren:()=>import("./modules/admin/admin.module").then(m=>m.AdminModule)},
   {path:"student",loadChildren:()=>import("./modules/student/student.module").then(m=>m.StudentModule)}
 ];

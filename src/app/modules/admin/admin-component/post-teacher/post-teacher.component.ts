@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { AdminService } from 'src/app/modules/admin-service/admin.service';
 
 @Component({
@@ -8,13 +9,16 @@ import { AdminService } from 'src/app/modules/admin-service/admin.service';
   styleUrls: ['./post-teacher.component.css']
 })
 export class PostTeacherComponent implements OnInit {
-
-  validateFrom:FormGroup;
+  isSpinning : boolean=false;
+  validateForm:FormGroup;
+  gender:string='';
   constructor(private adminService:AdminService,
-    private fb:FormBuilder) { }
+    private fb:FormBuilder,
+  private snackbar:MatSnackBar
+  ) { }
 
   ngOnInit(): void {
-    this.validateFrom=this.fb.group({
+    this.validateForm=this.fb.group({
       name:[null,Validators.required],
       gender:[null,Validators.required],
       department:[null,Validators.required],
@@ -22,6 +26,19 @@ export class PostTeacherComponent implements OnInit {
       address:[null,Validators.required],
       dob:[null,Validators.required],
     })
+  }
+  postTeachers(){
+    console.log(this.validateForm.value);
+    this.adminService.addTeacher(this.validateForm.value).subscribe(
+      (res)=>{
+        if(res.id !=null){
+            this.snackbar.open("Teacher Details Saved Succesfully","Close",{duration:2000});
+            this.validateForm.reset();
+        }else{
+          this.snackbar.open("Something went wrong","Close",{duration:2000});
+        }
+      }
+    )
   }
 
 }
