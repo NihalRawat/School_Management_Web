@@ -79,5 +79,16 @@ export class AdminService {
       });
     }
 
+    getAllTeachers():Observable<any>{
+    
+      return this.http.get<[]>(this.keys + "api/admin/teachers",{
+          headers:this.createAuthorizationHeader()
+      })
+    }
+    deleteTeacher(teacherId:number):Observable<any>{
+      return this.http.delete<[]>(this.keys + `api/admin/teachers/${teacherId}`,{
+        headers :this.createAuthorizationHeader(),  
+      });
+    }
 
 }

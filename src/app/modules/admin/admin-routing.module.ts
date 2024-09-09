@@ -8,6 +8,7 @@ import { UpdateStudentComponent } from './admin-component/update-student/update-
 import { PayFeeComponent } from './admin-component/pay-fee/pay-fee.component';
 import { AllLeavesComponent } from './admin-component/all-leaves/all-leaves.component';
 import { PostTeacherComponent } from './admin-component/post-teacher/post-teacher.component';
+import { GetAllTeachersComponent } from './admin-component/get-all-teachers/get-all-teachers.component';
 
 const routes: Routes = [
   {path:"dashboard",component:DashboardComponent,canActivate:[AdminGuard]},
@@ -17,6 +18,7 @@ const routes: Routes = [
   {path:"fee/:studentId",component:PayFeeComponent,canActivate:[AdminGuard]},
   {path:"leaves",component:AllLeavesComponent,canActivate:[AdminGuard]},
   {path:"teacher",component:PostTeacherComponent,canActivate:[AdminGuard]},
+  {path:"teachers",component:GetAllTeachersComponent,canActivate:[AdminGuard]}
 ];
 
 @NgModule({

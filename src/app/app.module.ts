@@ -13,11 +13,13 @@ import {ReactiveFormsModule,FormsModule} from '@angular/forms'
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { EmptyNotificationComponent } from './modules/shared/empty-notification/empty-notification.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    EmptyNotificationComponent,
 
   ],
   imports: [

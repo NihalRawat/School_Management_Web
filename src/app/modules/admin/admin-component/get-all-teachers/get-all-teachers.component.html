@@ -1,0 +1,43 @@
+<div class="teacher-card-container">
+    <mat-card class="teacher-card" *ngFor="let teacher of teachers">
+      <mat-card-header>
+        <mat-card-title>{{ teacher.name }}</mat-card-title>
+        <mat-card-subtitle>{{ teacher.department }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Address:</strong> {{ teacher.address }}</p>
+        <p><strong>DOB:</strong> {{ teacher.dob | date: 'MMM dd,y' }}</p>
+        <p><strong>Gender:</strong> {{ teacher.gender }}</p>
+        <p><strong>Qualification:</strong> {{ teacher.qualification }}</p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>Edit</button>
+        <button class="material-symbols-outlined btnDelete" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="deleteTeacher(teacher.id)">Delete</button>
+        
+      </mat-card-actions>
+    </mat-card>
+    <!-- <app-empty-notification></app-empty-notification> -->
+  </div>
+
+   <!-- delete modal  -->
+<div id="deleteModal" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header flex-column">
+				<div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>
+				<h4 class="modal-title w-100">Are you sure?</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			</div>
+			<div class="modal-body">
+				<p>Do you really want to delete these records? This process cannot be undone.</p>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal" #deleteModal>Cancel</button>
+				<button type="button" class="btn btn-danger" (click)="confirmDelete()">Delete</button>
+			</div>
+		</div>
+	</div>
+</div>
+  
