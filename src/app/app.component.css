@@ -1,4 +1,76 @@
-.navbar{
+/* Common Navbar Styles */
+.navbar {
+    background-color: #3F51B5; /* Primary color for the navbar */
+    color: white;
+    padding: 0 24px;
+    font-family: 'Roboto', sans-serif; /* Modern font */
     display: flex;
-    justify-content: space-between;
-}
+    align-items: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Brand Styling */
+  .navbar-brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+  }
+  
+  /* Spacing */
+  .spacer {
+    flex: 1 1 auto; /* Pushes the menu items to the right */
+  }
+  
+  /* Button Styling */
+  button[mat-button] {
+    color: white; /* White text color for buttons */
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+  }
+  
+  button[mat-button]:hover {
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle hover effect */
+  }
+  
+  /* Raised button for actions like Logout */
+  button[mat-raised-button] {
+    background-color: #F44336; /* Color for the logout button */
+    color: white;
+  }
+  
+  button[mat-raised-button]:hover {
+    background-color: #D32F2F; /* Darker hover color for logout */
+  }
+  
+  /* Active Route Indicator */
+  .active {
+    border-bottom: 2px solid #FFC107; /* Indicator for active route */
+  }
+  
+  /* Responsive Styling for Mobile */
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: column;
+      padding: 16px;
+      text-align: center;
+    }
+  
+    button[mat-button], button[mat-raised-button] {
+      margin: 8px 0; /* Add margin between buttons on small screens */
+    }
+  
+    .navbar-brand {
+      margin-bottom: 16px;
+    }
+  }
+  
+  /* Additional Styles for Raised Buttons */
+  button[mat-raised-button][color="accent"] {
+    background-color: #FFC107;
+    color: white;
+  }
+  
+  button[mat-raised-button][color="accent"]:hover {
+    background-color: #FFB300;
+  }
+  

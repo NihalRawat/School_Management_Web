@@ -10,9 +10,11 @@ const keys='http://localhost:8083/';
 
 export class HomeService {
   
+  
   constructor(private http:HttpClient) { }
   getAllTeacher():Observable<any>{
-      return this.http.get(keys+"teachers");
+    return this.http.get(keys+"teachers");
+      
   }
 
 

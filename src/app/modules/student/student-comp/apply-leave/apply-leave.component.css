@@ -1,31 +1,69 @@
-.parent{
+.parent {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 60vh;
 }
-.child{
+
+.child {
     width: 100%;
     max-width: 400px;
+    background-color: #ffffff; /* Add a background color */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    padding: 20px; /* Add padding */
+    transition: transform 0.3s ease;
 }
-.form-title{
-    margin-left: 130px;
+
+.child:hover {
+    transform: translateY(-5px); /* Slight lift on hover */
 }
-.login-form{
+
+.form-title {
+    text-align: center; /* Center the title */
+    font-size: 24px;
+    color: #3F51B5; /* Make the title match material design primary color */
+    margin-bottom: 20px;
+}
+
+.login-form {
     display: flex;
     flex-direction: column;
 }
-.mat-form-field{
+
+.mat-form-field {
     width: 100%;
+    margin-bottom: 20px; /* Add space between fields */
 }
-button{
+
+.submit-button {
     width: 100%;
+    background-color: #FF4081; /* Accent color */
+    color: white;
+    padding: 12px 0; /* Increase padding for better clickability */
+    font-size: 16px;
+    border-radius: 25px; /* Rounded button */
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        background-color: #F50057; /* Darker color on hover */
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+    }
+
+    &:disabled {
+        background-color: #cccccc; /* Gray out when disabled */
+        color: #ffffff;
+    }
 }
-@media (max-width:768px){
-    .parent{
+
+@media (max-width: 768px) {
+    .parent {
         padding: 0 10px;
     }
-    .child{
+
+    .child {
         max-width: 100%;
     }
 }

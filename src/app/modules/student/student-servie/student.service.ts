@@ -10,10 +10,10 @@ export class StudentService {
 
 keys:string='http://localhost:8083/';
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient,private StorageService:StorageService) { }
  
   private createAuthorizationHeader(): HttpHeaders {
-    const token = StorageService.getToken();
+    const token = this.StorageService.getToken();
     let authHeaders: HttpHeaders = new HttpHeaders();
     if (token) {
       authHeaders = authHeaders.set('Authorization', `Bearer ${token}`);
@@ -22,13 +22,13 @@ keys:string='http://localhost:8083/';
   }
 
   getStudentById():Observable<any>{
-    return this.http.get<[]>(this.keys+`api/student/${StorageService.getUserId()}`,{
+    return this.http.get<[]>(this.keys+`api/student/${this.StorageService.getUserId()}`,{
       headers:this.createAuthorizationHeader()
     })
   }
 
   applyLeave(studentLeaveDto):Observable<any>{
-    studentLeaveDto.userId=StorageService.getUserId();
+    studentLeaveDto.userId=this.StorageService.getUserId();
     console.log(studentLeaveDto);
     return this.http.post<[]>(this.keys+`api/student/leave`,studentLeaveDto,{
       headers:this.createAuthorizationHeader()
@@ -37,14 +37,14 @@ keys:string='http://localhost:8083/';
     
   }
   getAllAppliedLeaves():Observable<any>{
-    return this.http.get<[]>(this.keys+`api/student/leave/${StorageService.getUserId()}`,{
+    return this.http.get<[]>(this.keys+`api/student/leave/${this.StorageService.getUserId()}`,{
       headers:this.createAuthorizationHeader()
     })
   }
 
   updateStudent(studentLeaveDto):Observable<any>{
-    studentLeaveDto.userId = StorageService.getUserId();
-    return this.http.put<[]>(this.keys + `api/student/${StorageService.getUserId()}`,studentLeaveDto,{
+    studentLeaveDto.userId = this.StorageService.getUserId();
+    return this.http.put<[]>(this.keys + `api/student/${this.StorageService.getUserId()}`,studentLeaveDto,{
       headers:this.createAuthorizationHeader()
     })
   }

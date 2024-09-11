@@ -7,16 +7,16 @@ import { StorageService } from 'src/app/auth/service/storage-service/storage.ser
   providedIn: 'root'
 })
 export class NoAuthGuard implements CanActivate {
-  constructor(private router:Router){}
+  constructor(private router:Router,private StorageService:StorageService){}
   canActivate(
     next:ActivatedRouteSnapshot,
     state:RouterStateSnapshot
   ):boolean{
-  if(StorageService.hasToken() && StorageService.isStudentLoggedIn()){
+  if(this.StorageService.hasToken() && this.StorageService.isStudentLoggedIn()){
     this.router.navigateByUrl("/student/dashboard")
     return false;
   }
-  else if(StorageService.hasToken() && StorageService.isAmdinLoggedIn()){
+  else if(this.StorageService.hasToken() && this.StorageService.isAdminLoggedIn()){
     this.router.navigateByUrl("admin/dashboard");
     return false;
   }

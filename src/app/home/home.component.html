@@ -1,1 +1,18 @@
-<p>home works!</p>
+<div class="teacher-card-container">
+    <mat-card class="teacher-card" *ngFor="let teacher of teachers">
+      <mat-card-header>
+        <mat-card-title>{{ teacher.name }}</mat-card-title>
+        <mat-card-subtitle>{{ teacher.department }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p><strong>Address:</strong> {{ teacher.address }}</p>
+        <p><strong>DOB:</strong> {{ teacher.dob | date: 'MMM dd,y' }}</p>
+        <p><strong>Gender:</strong> {{ teacher.gender }}</p>
+        <p><strong>Qualification:</strong> {{ teacher.qualification }}</p>
+      </mat-card-content>
+      
+    </mat-card>
+    
+  </div>
+
+  

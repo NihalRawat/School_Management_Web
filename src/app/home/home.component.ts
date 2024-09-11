@@ -9,6 +9,7 @@ import { HomeService } from './home.service';
 export class HomeComponent implements OnInit {
 
   constructor(private service:HomeService) { }
+  teachers:any[]=[];
 
   ngOnInit(): void {
     this.getAllTeacher();
@@ -17,8 +18,8 @@ export class HomeComponent implements OnInit {
     this.service.getAllTeacher().subscribe(
       (res)=>{
         console.log(res);
-      }
-    )
+        this.teachers = res;
+      })
   }
 
 }

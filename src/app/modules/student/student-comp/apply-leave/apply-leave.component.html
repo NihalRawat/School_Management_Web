@@ -16,7 +16,9 @@
                     <mat-error *ngIf="validateForm.get('body')?.hasError('required')">This input is required</mat-error>                    
                   </mat-form-field>
 
-                  <button mat-raised-button color="primary" [disabled]="validateForm.invalid" (click)="applyLeave()">Submit</button>
+                  <!-- <button mat-raised-button color="primary" [disabled]="validateForm.invalid" (click)="applyLeave()">Submit</button> -->
+                  <button mat-raised-button color="primary" class="submit-button" [disabled]="validateForm.invalid" (click)="applyLeave()">Submit</button>
+
             </form>
         </div>
     </div>

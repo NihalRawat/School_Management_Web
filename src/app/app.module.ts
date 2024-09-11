@@ -14,16 +14,19 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { EmptyNotificationComponent } from './modules/shared/empty-notification/empty-notification.component';
+import { HomeComponent } from './home/home.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     EmptyNotificationComponent,
+    HomeComponent,
 
   ],
   imports: [
-    
+    MatCardModule,
     MatSnackBarModule,
     MatInputModule,
     MatFormFieldModule,

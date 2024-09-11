@@ -21,7 +21,7 @@ export class LoginComponent implements OnInit {
     private fb:FormBuilder,
     private router:Router,
     private snackbar:MatSnackBar,
-    
+    private StorageService:StorageService
   ) { }
 
   ngOnInit(): void {
@@ -38,11 +38,11 @@ export class LoginComponent implements OnInit {
   ).subscribe(
       (response)=>{
       console.log(response);
-      if(StorageService.isAmdinLoggedIn()){
+      if(this.StorageService.isAdminLoggedIn()){
         this.router.navigateByUrl("admin/dashboard");
           this.snackbar.open("Welcome Admin","Success",{duration:3000});
       }
-      else if(StorageService.isStudentLoggedIn()){
+      else if(this.StorageService.isStudentLoggedIn()){
         this.router.navigateByUrl("student/dashboard");
       }
     },
