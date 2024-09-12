@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute } from '@angular/router';
 import { AdminService } from 'src/app/modules/admin-service/admin.service';
+import { Location } from '@angular/common'; 
 
 @Component({
   selector: 'app-update-teacher',
@@ -13,7 +14,7 @@ export class UpdateTeacherComponent implements OnInit {
 
     teacherId:number=this.route.snapshot.params['teacherId'];
   constructor(private adminService:AdminService,private route:ActivatedRoute,
-    private fb:FormBuilder,private snackbar:MatSnackBar
+    private fb:FormBuilder,private snackbar:MatSnackBar,private location: Location
   ) { }
   validateForm:FormGroup;
 
@@ -49,6 +50,9 @@ export class UpdateTeacherComponent implements OnInit {
         }
       }
     )
+  }
+  goBack():void{
+    this.location.back();
   }
 
 }
