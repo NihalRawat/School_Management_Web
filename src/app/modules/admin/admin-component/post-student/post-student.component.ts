@@ -45,7 +45,8 @@ export class PostStudentComponent implements OnInit {
 
   postStudent(){
     console.log(this.validateForm.value);
-       
+    if (this.validateForm.valid) {
+
     this.service.addStudent(this.validateForm.value).subscribe((res)=>{      
       console.log("called");
       if(res.id!=null){
@@ -64,6 +65,11 @@ this.isSpinning=false;
       }
     })
   }
+  else{ 
+    
+    this.snackbar.open("First fill the details properly","Close",{duration:5000})
+  }
+  }
 
     confirmationValidator=(control:FormControl):{[s:string]:boolean}=>{
       if(!control.value){
@@ -73,5 +79,7 @@ this.isSpinning=false;
       }
       return {};
     }
+
+ 
     
 }

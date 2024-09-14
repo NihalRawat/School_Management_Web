@@ -1,9 +1,9 @@
 <div class="card-container" fxLayout="row wrap" fxLayoutGap="16px" fxLayoutAlign="center">
     <mat-card class="student-card" *ngFor="let student of students">
-      <mat-card-header class="card-header">
+      <mat-card-header class="card-header d-flex justify-content-between">
         <div class="avatar-container">
           <div class="avatar">
-            <img mat-card-avatar src="assets/student-avatar.png" alt="student-avatar">
+            <img mat-card-avatar src="assets/Images/schoolIcon.png" alt="student-avatar">
           </div>
         </div>
         <mat-card-title>{{student.name}}</mat-card-title>
