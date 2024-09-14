@@ -97,11 +97,19 @@ export class AdminService {
       }        
       )
     }
-
+    getCountsTSL():Observable<any>{       
+      return this.http.get<[]>(this.keys+"api/amdin/get-count",{
+        headers:this.createAuthorizationHeader()
+      })
+    }
+    
     updateTeacher(teacherId:number,teacherDto:any):Observable<any>{
       return this.http.put<[]>(this.keys+`api/admin/teacher/${teacherId}`,teacherDto,{
         headers:this.createAuthorizationHeader()
       })
     }
 
+   
+        
+    
 }
