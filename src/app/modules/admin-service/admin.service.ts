@@ -98,7 +98,7 @@ export class AdminService {
       )
     }
     getCountsTSL():Observable<any>{       
-      return this.http.get<[]>(this.keys+"api/amdin/get-count",{
+      return this.http.get<[]>(this.keys+`api/admin/count`,{
         headers:this.createAuthorizationHeader()
       })
     }

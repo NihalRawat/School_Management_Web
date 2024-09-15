@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-// import { Chart } from 'chart.js';
 import { Chart, BarElement, BarController, CategoryScale, Decimation, Filler, Legend, Title, Tooltip, LinearScale, PieController, ArcElement, Colors} from 'chart.js';
 import { AdminService } from 'src/app/modules/admin-service/admin.service';
 
@@ -25,6 +24,8 @@ export class DashboardComponent implements OnInit {
   totalLeaveCount:number=0; 
   approveLeaveCount:number=0; 
   pendingLeaveCount:number=0; 
+  chart: any;  // To hold the chart instance
+
 
   getCountOfTSL(){
       this.service.getCountsTSL().subscribe(
@@ -35,27 +36,53 @@ export class DashboardComponent implements OnInit {
             this.totalLeaveCount=res.totalLeaveCount;
             this.approveLeaveCount=res.approveLeaveCount;
             this.pendingLeaveCount=res.pendingLeaveCount;
-            console.log(res);
-        
+            console.log(res); 
+            this.showCharts();
       }else{
           console.log("some");
       }
-    }
-      )
-      this.showCharts();
+    })
+      
     }
 
-  showCharts(){
-    // Chart.register(BarElement,PieController, BarController, CategoryScale, LinearScale, Decimation, Filler, Legend, Title, Tooltip);
-    Chart.register(PieController, ArcElement, Tooltip, Legend,LinearScale,Colors);
+
+  // showCharts(){
+   
+  //   Chart.register(PieController, ArcElement, Tooltip, Legend,LinearScale,Colors);
     
+  // new Chart("myChart", {
+  //   type: 'pie',
+  //   data: {
+  //     labels: ['Teachers', 'Students', 'Total Leaves', 'Approved Leaves', 'Pending Leaves'],
+  //     datasets: [{
+  //       label: 'Counts',
+  //       data: [this.teacherCount, this.studentCount, this.totalLeaveCount, this.approveLeaveCount, this.pendingLeaveCount],
+  //       // backgroundColor: ['#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF'],
+  //       borderWidth: 1
+  //     }]
+  //   },
+  //   options: {
+  //     responsive: true,
+  //     plugins: {
+  //       legend: {
+  //         display: true,
+  //         position: 'top',
+  //       },
+  //       tooltip: {
+  //         enabled: true
+  //       }}
+  //   }
+  // });
+  // }
+  showCharts(){    
+    Chart.register(PieController, ArcElement, Tooltip, Legend,LinearScale,Colors);    
   new Chart("myChart", {
     type: 'pie',
     data: {
-      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      labels: ['Total Teachers', 'Total Students', 'Total Leaves', 'Approved Leaves', 'Pending Leaves'],
       datasets: [{
-        label: '# of Votes',
-        data: [12, 19, 3, 5, 2, 3],
+        label: 'Count',
+        data: [this.teacherCount, this.studentCount, this.totalLeaveCount, this.approveLeaveCount, this.pendingLeaveCount],
         borderWidth: 1
       }]
     },
@@ -68,6 +95,7 @@ export class DashboardComponent implements OnInit {
     }
   });
   }
-  
 
 }
+
+
