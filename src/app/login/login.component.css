@@ -81,6 +81,7 @@ body {
     
   }
   .eye-icon{
+    cursor: pointer;
     position: relative;
     right: 30px;
     top: 14px;
