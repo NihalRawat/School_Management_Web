@@ -1,9 +1,13 @@
+
 <section class="vh-100 d-flex flex-column">
   <div class="container-fluid h-custom flex-fill">
     <div class="row d-flex justify-content-center align-items-center h-100">
       <div class="col-md-6 col-lg-5 col-xl-4">
         <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          class="img-fluid rounded" alt="Sample image">
+          class="img-fluid rounded" alt="Sample image">   
+        
+          <!-- <app-loginpage-carousel></app-loginpage-carousel> -->
+             
       </div>
       <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
         <form [formGroup]='loginForm' (ngSubmit)="login()">
@@ -32,9 +36,14 @@
           </div>
 
           <!-- Password input -->
-          <div class="form-outline mb-3">
-            <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter password" formControlName="password" required/>
+          <div class="form-outline mb-3" style="width: 105%;">
+            <div class="d-flex">
+            <input [type]="showPasswordValues ? 'text' : 'password'" id="form3Example4" class="form-control form-control-lg"
+              placeholder="Enter password" formControlName="password" required/>              
+              <span class="material-symbols-outlined eye-icon" *ngIf="showPasswordValues" (click)="showPassword()"> visibility</span>
+              <span class="material-symbols-outlined eye-icon " *ngIf="!showPasswordValues" (click)="showPassword()"> visibility_off </span>
+            
+          </div>
             <label class="form-label" for="form3Example4">Password</label>
           </div>
 

@@ -16,6 +16,9 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { EmptyNotificationComponent } from './modules/shared/empty-notification/empty-notification.component';
 import { HomeComponent } from './home/home.component';
 import {MatCardModule} from '@angular/material/card';
+import { LoginpageCarouselComponent } from './login/Carousel/loginpage-carousel/loginpage-carousel.component';
+
+
 
 @NgModule({
   declarations: [
@@ -23,6 +26,7 @@ import {MatCardModule} from '@angular/material/card';
     LoginComponent,
     EmptyNotificationComponent,
     HomeComponent,
+    LoginpageCarouselComponent,
 
   ],
   imports: [

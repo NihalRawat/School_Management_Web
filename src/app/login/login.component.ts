@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ContentChild, OnInit } from '@angular/core';
 import { AuthService } from '../auth/service/auth/auth.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { StorageService } from '../auth/service/storage-service/storage.service';
 import { Route, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { UtilityServiceService } from '../auth/service/utility/utility-service.service';
+import { loginCarousel } from './Carousel/loginCarousel';
+
+
 
 
 @Component({
@@ -29,6 +32,8 @@ export class LoginComponent implements OnInit {
       email:['',Validators.required],
       password:['',Validators.required],
     })
+    this.carouselData=loginCarousel;
+    this.autoPlay()
   }
   login(){
     console.log(this.loginForm.value);
@@ -60,5 +65,24 @@ export class LoginComponent implements OnInit {
       // console.log("user invalid");
     });
   }
-  
+
+  carouselData:any;
+  currentSlide=0;
+  interval:any;
+  autoPlay(){
+    setInterval(()=>{
+       this.nextSlide();
+     },2000)
+     }
+ 
+     nextSlide(){
+       this.currentSlide=(this.currentSlide+1) % this.carouselData.length
+       //when ever the carousel data reached at the last index then it will set to the first index.
+     }
+     
+     showPasswordValues:boolean=false;
+     showPassword(){
+      this.showPasswordValues=!this.showPasswordValues;
+     }
+
 }

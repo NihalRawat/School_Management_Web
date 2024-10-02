@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { loginCarousel } from '../empty-notification/loginCarousel';
+import { loginCarousel } from '../loginCarousel';
+
+
+
 
 @Component({
   selector: 'app-loginpage-carousel',

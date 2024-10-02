@@ -12,6 +12,9 @@
       </mat-card-content>
       
     </mat-card>
+    <div *ngIf="teachers.length==0">
+        <app-empty-notification></app-empty-notification>
+    </div>
     
   </div>
 
