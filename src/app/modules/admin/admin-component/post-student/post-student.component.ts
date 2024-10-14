@@ -23,7 +23,7 @@ export class PostStudentComponent implements OnInit {
       checkPassword:['',Validators.required],
       fatherName:['',Validators.required],
       motherName:['',Validators.required],
-      studentName:['',Validators.required],
+      // studentName:['',Validators.required],
       dateOfBirth:['',Validators.required],
       address:['',Validators.required],
       gender:['',Validators.required],
