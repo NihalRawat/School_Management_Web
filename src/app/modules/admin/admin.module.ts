@@ -21,6 +21,7 @@ import {MatMenuModule} from '@angular/material/menu';
 import { PostTeacherComponent } from './admin-component/post-teacher/post-teacher.component';
 import { GetAllTeachersComponent } from './admin-component/get-all-teachers/get-all-teachers.component';
 import { UpdateTeacherComponent } from './admin-component/update-teacher/update-teacher.component';
+import { LoadersComponent } from './admin-component/loaders/loaders.component';
 @NgModule({
   declarations: [
     
@@ -32,7 +33,8 @@ import { UpdateTeacherComponent } from './admin-component/update-teacher/update-
     AllLeavesComponent,
     PostTeacherComponent,
     GetAllTeachersComponent,
-    UpdateTeacherComponent
+    UpdateTeacherComponent,
+    LoadersComponent
   ],
 imports: [MatMenuModule,MatCardModule,MatInputModule,MatProgressSpinnerModule,MatFormFieldModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ReactiveFormsModule,FormsModule,
     HttpClientModule,

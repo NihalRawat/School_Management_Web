@@ -25,16 +25,21 @@ export class AllStudentsComponent implements OnInit {
   //   })
   // } 
 
+    loading:boolean=false;
+
   getAllStudents() {
+    this.loading=true;
     this.service.getAllStudents().subscribe({
       next: (res) => {
         console.log(res);
         this.students=res;
+        this.loading=false;
       },
       error: (error: HttpErrorResponse) => {
         console.log('Error fetching students:', error);
-       
+        this.loading=false;
       }
+      
     });
   }
 

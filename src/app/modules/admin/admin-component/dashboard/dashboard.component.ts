@@ -25,9 +25,11 @@ export class DashboardComponent implements OnInit {
   approveLeaveCount:number=0; 
   pendingLeaveCount:number=0; 
   chart: any;  // To hold the chart instance
-
+  loading:boolean=false;
 
   getCountOfTSL(){
+    debugger
+    this.loading=true;
       this.service.getCountsTSL().subscribe(
         (res)=>{
           if(res!=null){
@@ -41,6 +43,7 @@ export class DashboardComponent implements OnInit {
       }else{
           console.log("some");
       }
+      this.loading=false;
     })
       
     }

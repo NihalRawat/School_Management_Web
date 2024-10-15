@@ -17,6 +17,7 @@ import { EmptyNotificationComponent } from './modules/shared/empty-notification/
 import { HomeComponent } from './home/home.component';
 import {MatCardModule} from '@angular/material/card';
 import { LoginpageCarouselComponent } from './login/Carousel/loginpage-carousel/loginpage-carousel.component';
+import { LoaderComponent } from './modules/shared/loader/loader.component';
 
 
 
@@ -27,6 +28,7 @@ import { LoginpageCarouselComponent } from './login/Carousel/loginpage-carousel/
     EmptyNotificationComponent,
     HomeComponent,
     LoginpageCarouselComponent,
+    LoaderComponent,
 
   ],
   imports: [

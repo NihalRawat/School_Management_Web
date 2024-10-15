@@ -35,7 +35,10 @@ export class LoginComponent implements OnInit {
     this.carouselData=loginCarousel;
     this.autoPlay()
   }
+
+  loading:boolean=false;
   login(){
+    this.loading=true;    
     console.log(this.loginForm.value);
     this.authService.login(
     this.loginForm.get(['email'])!.value,
@@ -50,6 +53,7 @@ export class LoginComponent implements OnInit {
       else if(this.StorageService.isStudentLoggedIn()){
         this.router.navigateByUrl("student/dashboard");
       }
+      this.loading=false;
     },
     (error)=>{
       if(error.status==406){
@@ -63,6 +67,7 @@ export class LoginComponent implements OnInit {
         });        
       }
       // console.log("user invalid");
+      this.loading=false;
     });
   }
 
