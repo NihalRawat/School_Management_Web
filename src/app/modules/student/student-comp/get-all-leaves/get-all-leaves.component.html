@@ -9,10 +9,16 @@
             <p><strong>Date:</strong> {{leave.date | date:'MMM d, y'}}</p>
             <p>
                 <strong>Status:</strong> 
-                <span class="status" [ngStyle]="{'color': leave.studentLeaveStatus === 'APPROVED' ? 'green' : leave.studentLeaveStatus === 'DISAPPROVED' ? 'red' : 'orange'}">
+                <span class="status" [ngStyle]="{'color': leave.studentLeaveStatus === 'APPROVED' ? 'green' : leave.studentLeaveStatus === 'DISAPPROVED' ? 'red' : 'orange'}" style="font-size: 20px;padding-left: 10px;">
                     {{leave.studentLeaveStatus}}
                 </span>
             </p>
         </mat-card-content>
     </mat-card>
 </div>
+
+<div class="loader" *ngIf="loading ">
+    <app-loaders class="loader-align"></app-loaders>
+</div>
+<app-empty-notification *ngIf="!loading && leaves.length === 0" [message]="'Something went wrong'"></app-empty-notification>
+  

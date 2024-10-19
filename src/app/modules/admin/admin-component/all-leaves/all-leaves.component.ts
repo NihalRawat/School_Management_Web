@@ -10,7 +10,9 @@ import { AdminService } from 'src/app/modules/admin-service/admin.service';
 export class AllLeavesComponent implements OnInit {
 
     isSpinning :boolean=false;
-    leaves:any;
+    leaves:any[]=[];
+    loading:boolean=false;
+
   constructor(private adminService:AdminService,
     private snackBar:MatSnackBar,
   ) { }
@@ -19,14 +21,19 @@ export class AllLeavesComponent implements OnInit {
     this.getAllLeaves();
   }
   getAllLeaves(){
-    this.isSpinning=true;
+    this.loading=true;
     this.adminService.getAllAppliedLeaves().subscribe(
       (res)=>{
-        console.log(res);
-        this.isSpinning=false;
-        this.leaves=res;
+        if(res){
+          console.log(res);
+          
+          this.leaves=res;
+        }
+        this.loading=false;
+       
       }
     )
+    
   }
 
   changeLeaveStatus(leaveId:number,status:string){

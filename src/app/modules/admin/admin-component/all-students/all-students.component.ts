@@ -11,7 +11,7 @@ import { AdminService } from 'src/app/modules/admin-service/admin.service';
 })
 export class AllStudentsComponent implements OnInit {
   
-  students:any;
+  students:any[]=[];
   constructor(private service:AdminService,private snackbar:MatSnackBar) { }
 
   ngOnInit(): void {
@@ -27,20 +27,39 @@ export class AllStudentsComponent implements OnInit {
 
     loading:boolean=false;
 
+  // getAllStudents() {
+  //   this.loading=true;
+  //   this.service.getAllStudents().subscribe({
+  //     next: (res) => {
+       
+  //       console.log(res);
+  //       this.students=res;
+        
+  //     },
+  //     error: (error: HttpErrorResponse) => {
+  //       console.log('Error fetching students:', error);
+        
+  //     }
+      
+  //   });
+  //   this.loading=false;
+  // }
   getAllStudents() {
     this.loading=true;
     this.service.getAllStudents().subscribe({
       next: (res) => {
+       if(res){
         console.log(res);
         this.students=res;
-        this.loading=false;
-      },
-      error: (error: HttpErrorResponse) => {
-        console.log('Error fetching students:', error);
-        this.loading=false;
+       }else{
+        console.log("error");
+       }    
+       this.loading=false; 
       }
+     
       
-    });
+    });   
+    
   }
 
   deleteStudent(studentId:number){

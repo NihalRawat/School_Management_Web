@@ -40,4 +40,9 @@
 		</div>
 	</div>
 </div>
-  
+
+
+<div class="loader" *ngIf="loading && teachers.length == 0">
+  <app-loaders class="loader-align"></app-loaders>
+</div>
+<app-empty-notification [message]="'Add Teacher first '" [path]="'/admin/teacher'" *ngIf="teachers.length === 0 && !loading"></app-empty-notification>

@@ -8,7 +8,9 @@ import { AdminService } from 'src/app/modules/admin-service/admin.service';
 })
 export class GetAllTeachersComponent implements OnInit {
 
-  teachers=[];
+  teachers:any[]=[];
+  loading:boolean=false;
+
   constructor(private adminService:AdminService) { }
   @ViewChild('closeModal') closeModal!: ElementRef;
 
@@ -18,12 +20,19 @@ export class GetAllTeachersComponent implements OnInit {
     this.getAllTeachers();
   }
   getAllTeachers(){
+    this.loading=true;
     this.adminService.getAllTeachers().subscribe(
       (res)=>{
-        console.log(res);
+        if(res){
+          console.log(res);
+        this.loading=true;
         this.teachers=res;
-      }
+        }
+        this.loading=false;
+            
+      }      
     )
+    
   }
   teacherId:number;
   deleteTeacher(id:number){

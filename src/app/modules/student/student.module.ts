@@ -14,6 +14,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ApplyLeaveComponent } from './student-comp/apply-leave/apply-leave.component';
 import { GetAllLeavesComponent } from './student-comp/get-all-leaves/get-all-leaves.component';
 import { UpdateStudentComponent } from './student-comp/update-student/update-student.component';
+import { EmptyNotificationComponent } from '../admin/admin-component/empty-notification/empty-notification.component';
+import { LoadersComponent } from '../admin/admin-component/loaders/loaders.component';
+import { AdminModule } from '../admin/admin.module';
 @NgModule({
   declarations: [
     DashboardComponent,ApplyLeaveComponent,GetAllLeavesComponent, UpdateStudentComponent
@@ -22,7 +25,7 @@ import { UpdateStudentComponent } from './student-comp/update-student/update-stu
   imports: [
     MatCardModule,MatInputModule,MatProgressSpinnerModule,MatFormFieldModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ReactiveFormsModule,FormsModule,
     CommonModule,
-    StudentRoutingModule
+    StudentRoutingModule,AdminModule
   ]
 })
 export class StudentModule { }

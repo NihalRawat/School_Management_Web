@@ -26,6 +26,7 @@
       </mat-card-actions>
     </mat-card>
   </div>
-  <div class="loader" *ngIf="loading">
+  <div class="loader" *ngIf="loading && students.length === 0">
     <app-loaders class="loader-align"></app-loaders>
 </div>
+<app-empty-notification *ngIf="students.length === 0 && !loading" [message]="'Add Student\'s First'" [path]="'/admin/student'"></app-empty-notification>

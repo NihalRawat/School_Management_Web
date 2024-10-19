@@ -22,6 +22,7 @@ import { PostTeacherComponent } from './admin-component/post-teacher/post-teache
 import { GetAllTeachersComponent } from './admin-component/get-all-teachers/get-all-teachers.component';
 import { UpdateTeacherComponent } from './admin-component/update-teacher/update-teacher.component';
 import { LoadersComponent } from './admin-component/loaders/loaders.component';
+import { EmptyNotificationComponent } from './admin-component/empty-notification/empty-notification.component';
 @NgModule({
   declarations: [
     
@@ -34,12 +35,16 @@ import { LoadersComponent } from './admin-component/loaders/loaders.component';
     PostTeacherComponent,
     GetAllTeachersComponent,
     UpdateTeacherComponent,
-    LoadersComponent
+    LoadersComponent,
+    EmptyNotificationComponent
   ],
 imports: [MatMenuModule,MatCardModule,MatInputModule,MatProgressSpinnerModule,MatFormFieldModule,MatSelectModule,MatDatepickerModule,MatNativeDateModule,ReactiveFormsModule,FormsModule,
     HttpClientModule,
     CommonModule,
     AdminRoutingModule
+  ],
+  exports:[
+    LoadersComponent,EmptyNotificationComponent
   ]
 })
 export class AdminModule { }

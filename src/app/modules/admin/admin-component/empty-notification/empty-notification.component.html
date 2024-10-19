@@ -1,0 +1,19 @@
+<div class="table-responsive">
+    <table class="table ng-star-inserted">
+      <tbody>
+        <div class=" text-center  mt-3 pt-2 pb-2"><img class="mb-3" 
+            src="assets/Images/NoData.png" style="width: 23%;padding: 20px;">
+          <div class="mb-3">
+            <h3>No Data Available</h3>
+          </div>
+          <p class="w-75 mx-auto mb-3" style="font-size: 22px;">Oops! There are no record to display</p>
+          <span class="w-75 mx-auto mb-3 bg-danger rounded " style="font-size: 25px;" *ngIf="path &&  path.length > 0">
+            <a href={{path}} class="text-decoration-none text-dark">{{message}}</a>
+          </span>
+          <span class="w-75 mx-auto mb-3 bg-danger rounded " style="font-size: 25px;" *ngIf="!path || path.length === 0">
+            {{message}}
+          </span>
+        </div>
+      </tbody>
+    </table>
+  </div>

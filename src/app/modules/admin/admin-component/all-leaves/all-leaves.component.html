@@ -15,7 +15,8 @@
             'approved': leave.studentLeaveStatus === 'APPROVED',
             'disapproved': leave.studentLeaveStatus === 'DISAPPROVED',
             'pending': leave.studentLeaveStatus === 'PENDING'
-          }">{{leave.studentLeaveStatus}}</span>
+          }" [ngStyle]="{'color': leave.studentLeaveStatus === 'Approved' ? 'green' :
+          leave.studentLeaveStatus === 'Disapproved' ? 'red' : 'orange'}" style="font-size: 20px; padding-left: 8px;">{{leave.studentLeaveStatus}}</span>
         </p>
       </mat-card-content>
   
@@ -28,5 +29,9 @@
       </mat-card-actions>
     </mat-card>
   </div>
+  <div class="loader" *ngIf="loading && leaves.length == 0">
+    <app-loaders class="loader-align"></app-loaders>
+</div>
+  <app-empty-notification *ngIf="leaves.length == 0 && !loading" [message]="'No Leaves Available'"></app-empty-notification>
   
   

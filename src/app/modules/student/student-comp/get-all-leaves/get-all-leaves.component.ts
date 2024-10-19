@@ -9,7 +9,8 @@ import { StudentService } from '../../student-servie/student.service';
 export class GetAllLeavesComponent implements OnInit {
 
     isSpinning=false;
-    leaves:any;
+    leaves:any[]=[];
+    loading:boolean=false;
 
   constructor(private studentService:StudentService) { }
 
@@ -18,12 +19,15 @@ export class GetAllLeavesComponent implements OnInit {
   }
 
   getAllLeaves(){
-    this.isSpinning=true;
+    this.loading=true;
     this.studentService.getAllAppliedLeaves().subscribe(
       (res)=>{
-        console.log(res);
-        this.isSpinning=false;
-        this.leaves=res;
+        if(res){
+          console.log(res);          
+          this.leaves=res;
+        }
+        this.loading=false;
+       
       }
     )
   }
