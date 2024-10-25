@@ -67,5 +67,12 @@
     <button mat-raised-button color="warn" (click)="logout()">Logout</button>
   </mat-toolbar>
 </div>
+<!-- Checking the status of online or offline  -->
+<div *ngIf="connectionStatus === 'offline'" class="onOff offline">
+<span>{{connectionStatusMessage}}</span>
+</div>
+<div *ngIf="connectionStatus === 'online'" class="onOff online">
+  <span>{{connectionStatusMessage}}</span>
+</div>
 
 <router-outlet></router-outlet>

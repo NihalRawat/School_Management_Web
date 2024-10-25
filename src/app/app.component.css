@@ -73,4 +73,46 @@
   button[mat-raised-button][color="accent"]:hover {
     background-color: #FFB300;
   }
+
+  /* internet connection online and offline checking */
+  .online {
+    background-color: green;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    height: 100%;
+    animation:online-response 0.5s 1;
+      -webkit-animation:online-response 0.5s 1;
+      animation-fill-mode: forwards;
+  
+      animation-delay:2s;
+      -webkit-animation-delay:1s; /* Safari and Chrome */
+      -webkit-animation-fill-mode: forwards;
+  }
+  
+  .offline {
+    background-color: red;
+    color: #ffffff;
+    padding: 10px;
+    text-align: center;
+    height: 100%;
+  }
+  .onOff{
+    position: absolute;
+    height: 10vh;
+    font-size: 20px;
+    top: 10rem;
+    width: 100%;
+
+  }
+  
+  @keyframes online-response{
+      from {opacity :1;}
+      to {opacity :0;}
+  }
+  
+  @-webkit-keyframes online-response{
+      from {opacity :1;}
+      to {opacity :0;}
+  }
   

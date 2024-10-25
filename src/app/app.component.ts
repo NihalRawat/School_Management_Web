@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { StorageService } from './auth/service/storage-service/storage.service';
 import { NavigationEnd, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { fromEvent, Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -15,26 +15,29 @@ export class AppComponent {
   isStudentLoggedIn: boolean;
   subscription: Subscription;
   
-  constructor(private router:Router,private cdRef: ChangeDetectorRef,private storageService: StorageService){}
-  // ngOnInit(){
-  //   this.updateUserLoggedStatus();
-  //   this.router.events.subscribe(events=>{
-  //     if(event instanceof NavigationEnd){
-  //       this.updateUserLoggedStatus();
-  //     }
-  //   })
-  // }
+  // checking here the status for online and offline
+  onlineEvent:Observable<Event>;
+  offlineEvent:Observable<Event>;
+  subscriptionList:Subscription[]=[];
+  connectionStatusMessage :string;
+  connectionStatus : string;
 
-  // private updateUserLoggedStatus():void{
-  //   this.isAdminLoggedIn=StorageService.isAmdinLoggedIn();
-  //   this.isStudentLoggedIn=StorageService.isStudentLoggedIn();
-  // }
-  // logout(){
-  //   StorageService.logout();
-  //   this.router.navigateByUrl("/login");
-  // }
+  constructor(private router:Router,private cdRef: ChangeDetectorRef,private storageService: StorageService){}
+  
 
   ngOnInit() {
+    this.onlineEvent=fromEvent(window,'online');
+    this.offlineEvent=fromEvent(window,'offline');
+    this.subscriptionList.push(this.onlineEvent.subscribe(e=>{
+      this.connectionStatusMessage = 'You are Back Online';
+      this.connectionStatus = 'online';
+    }))
+
+    this.subscriptionList.push(this.offlineEvent.subscribe(e=>{
+        this.connectionStatusMessage = 'Connection lost! You are not connected to internet';
+        this.connectionStatus = 'offline';
+    }))
+
     this.updateUserLoggedStatus();
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
@@ -64,6 +67,8 @@ export class AppComponent {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
+    //unscribing the event 
+    this.subscriptionList.forEach(subscription=>subscription.unsubscribe());
   }
 
 }
