@@ -37,6 +37,11 @@ export class AppComponent {
         this.connectionStatusMessage = 'Connection lost! You are not connected to internet';
         this.connectionStatus = 'offline';
     }))
+    if (!navigator.onLine) {
+      this.connectionStatusMessage = 'Connection lost ! Please check your internet connection';
+      this.connectionStatus = 'offline';
+      console.log("already offline");
+    }
 
     this.updateUserLoggedStatus();
     this.router.events.subscribe(event => {

@@ -68,11 +68,15 @@
   </mat-toolbar>
 </div>
 <!-- Checking the status of online or offline  -->
-<div *ngIf="connectionStatus === 'offline'" class="onOff offline">
+<!-- <div *ngIf="connectionStatus === 'offline'" class="onOff offline">
 <span>{{connectionStatusMessage}}</span>
 </div>
 <div *ngIf="connectionStatus === 'online'" class="onOff online">
   <span>{{connectionStatusMessage}}</span>
+</div> -->
+<div>
+  <div class="d-flex align-items-center gap-2" [ngClass]="{'offline': connectionStatus === 'offline'}" class="onnff"><i class="bi bi-wifi-off" style="font-size: 20px; padding-right: 5px;"></i>{{ connectionStatusMessage }}</div>
+  <div class="d-flex align-items-center gap-2" [ngClass]="{'online': connectionStatus === 'online'}" class="onnff"><i class="bi bi-wifi"  style="font-size: 20px; padding-right: 5px;"></i>{{ connectionStatusMessage }}</div>
 </div>
 
 <router-outlet></router-outlet>

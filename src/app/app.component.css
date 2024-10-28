@@ -75,43 +75,38 @@
   }
 
   /* internet connection online and offline checking */
+  .onnff{
+    font-size: 15px;
+    position: absolute;
+    top: 3rem;
+    padding: 10px 15px;
+    text-align: center;
+    right: 15px;
+    line-height: 22px;
+    z-index: 99;
+    border-radius: 7px;
+    transition: 0.2s linear;
+    transform: translateX(110%);
+  }
   .online {
     background-color: green;
     color: #ffffff;
-    padding: 10px;
-    text-align: center;
-    height: 100%;
-    animation:online-response 0.5s 1;
-      -webkit-animation:online-response 0.5s 1;
-      animation-fill-mode: forwards;
   
+    
+    animation:online-response 1s 1;
+      animation-fill-mode: forwards;
       animation-delay:2s;
-      -webkit-animation-delay:1s; /* Safari and Chrome */
-      -webkit-animation-fill-mode: forwards;
+      transform: translateX(0%);
   }
   
   .offline {
-    background-color: red;
+    background-color: #cc6060;
     color: #ffffff;
-    padding: 10px;
-    text-align: center;
-    height: 100%;
+    transform: translateX(0%);
+    
   }
-  .onOff{
-    position: absolute;
-    height: 8vh;
-    font-size: 20px;
-    top: 4rem;
-    width: 100%;
-
-  }
-  
+    
   @keyframes online-response{
-      from {opacity :1;}
-      to {opacity :0;}
-  }
-  
-  @-webkit-keyframes online-response{
       from {opacity :1;}
       to {opacity :0;}
   }
