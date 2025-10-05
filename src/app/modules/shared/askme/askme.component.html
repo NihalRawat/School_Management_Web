@@ -1,0 +1,11 @@
+<div class="container">
+    <img src="/w3images/bandmember.jpg" alt="Avatar">
+    <p>Hello. How are you today?</p>
+    <input type="text" placeholder="aks me" #question >
+    <button type="button" (click)="callGemini(question.value)" class="p-2"></button>
+    <!-- <p>{{geminiAnswer}}</p> -->
+    <p *ngFor="let answer of geminiAllAnswer">{{answer}}</p>
+    <span class="time-right">{{currentDateTime}}</span>
+  </div>
+  
+  

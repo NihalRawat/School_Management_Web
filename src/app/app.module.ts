@@ -18,6 +18,7 @@ import { HomeComponent } from './home/home.component';
 import {MatCardModule} from '@angular/material/card';
 import { LoginpageCarouselComponent } from './login/Carousel/loginpage-carousel/loginpage-carousel.component';
 import { LoaderComponent } from './modules/shared/loader/loader.component';
+import { AskmeComponent } from './modules/shared/askme/askme.component';
 
 
 
@@ -29,6 +30,7 @@ import { LoaderComponent } from './modules/shared/loader/loader.component';
     HomeComponent,
     LoginpageCarouselComponent,
     LoaderComponent,
+    AskmeComponent,
 
   ],
   imports: [
